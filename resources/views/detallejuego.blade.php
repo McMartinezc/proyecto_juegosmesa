@@ -3,7 +3,7 @@
 @section('contenido')
     <!-- Contenido de la vista de detalle -->
     <div class="card">
-        <img src="{{ $juego->imagen }}" class="card-img-top" alt="Imagen del juego">
+        <img src="{{ $juego->imagen }}" class="card-img-top" alt="{{ $juego->nombre }}">
         <div class="card-body">
             <h5 class="card-title">{{ $juego->nombre }}</h5>
             <p class="card-text"><strong>Número de Jugadores:</strong> {{ $juego->n_jugadores }}</p>

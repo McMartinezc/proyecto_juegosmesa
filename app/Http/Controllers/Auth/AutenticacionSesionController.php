@@ -28,12 +28,13 @@ class AutenticacionSesionController extends Controller
         ], $recordar);
 
         if (!$login) {
-            throw ValidationException::withMessages(['login' => 'Email o contraseña incorrecto']);
+            return redirect()->route('login')->withErrors(['login' => 'Email o contraseña incorrecto']);
         }
-
+    
         $request->session()->regenerate();
-
-        return redirect()->route('home')->with(['status' => 'Login Correcto']);
+    
+        // Pasar el mensaje como parámetro en la redirección hacia la vista home
+        return redirect()->route('home')->with(['mensaje' => 'Login Correcto']);
     }
 
     // Método logout
@@ -52,3 +53,4 @@ class AutenticacionSesionController extends Controller
         return redirect()->route('login')->with($datos);
     }
 }
+

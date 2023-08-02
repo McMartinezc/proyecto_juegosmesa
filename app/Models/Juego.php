@@ -24,7 +24,12 @@ class Juego extends Model
                     ->withTimestamps();
     }
 
-    public static function consulta(){
-        return Juego::orderBy('nombre')->get();
-    }
+    public static function consulta($filtro){
+        if($filtro){
+            //Utilizamos like para buscar juegos que coincidan
+            return Juego::where('nombre', 'like', '%'.$filtro.'%')->get();
+        }else{
+            return Juego::all();
+        } 
+     }
 }

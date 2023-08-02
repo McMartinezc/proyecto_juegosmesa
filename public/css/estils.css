@@ -1,0 +1,36 @@
+.card {
+    display: flex;
+    flex-direction: row;
+}
+
+.card-img-top {
+    width: 100%;
+    max-width: 250px;
+    flex-shrink: 0;
+    flex-grow: 1;
+}
+
+.usuari {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    align-items: center;
+}
+
+.img-container {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.usuari img {
+    max-width: 150px;
+    max-height: 150px;
+    clip-path: circle(40%);
+    object-fit: cover;
+}

@@ -51,15 +51,42 @@
         <br>
         <button type="submit" class="btn btn-primary">Modificar Juego</button>
     </form>
-    <h4>
-        @if($errors->any())
-            <ul>
-                @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        @else
-            <p>{{ $mensajes ?? null }}</p>
-        @endif
-    </h4>
+<!-- Mostrar mensaje de éxito -->
+@if (session()->has('success'))
+<div class="alert alert-success" role="alert">
+    {{ session('success') }}
+</div>
+@endif
+
+<!-- Mostrar mensaje de información -->
+@if (session()->has('info'))
+<div class="alert alert-info" role="alert">
+    {{ session('info') }}
+</div>
+@endif
+
+<!-- Mostrar mensaje de advertencia -->
+@if (session()->has('warning'))
+<div class="alert alert-warning" role="alert">
+    {{ session('warning') }}
+</div>
+@endif
+
+<!-- Mostrar mensaje de error -->
+@if (session()->has('error'))
+<div class="alert alert-danger" role="alert">
+    {{ session('error') }}
+</div>
+@endif
+
+<!-- Mostrar mensajes de error de validación -->
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
 @endsection

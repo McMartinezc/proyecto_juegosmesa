@@ -5,9 +5,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juegos de Mesa</title>
+    <title>Tauler de jocs</title>
     <!-- CSS de Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/estils.css" rel="stylesheet">
 </head>
 
 <body>
@@ -15,7 +16,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <!-- Logo -->
-            <a class="navbar-brand" href="{{ route('home') }}">Logo Juego</a>
+            <a class="navbar-brand" href="{{ route('home') }}">Tauler de jocs</a>
 
             <!-- Menú de navegación -->
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -26,22 +27,22 @@
 
                     <!-- Mostrar el menú de acuerdo al estado de autenticación del usuario -->
                     @guest
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('registro') }}">Registro</a>
-                        </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('registro') }}">Registro</a>
+                    </li>
                     @else
-                        <li class="nav-item">
-                            <span class="nav-link">{{ Auth::user()->nombre }}</span>
-                        </li>
-                        <li class="nav-item">
-                            <form method="post" action="{{ route('logout') }}">
-                                @csrf
-                                <a class="nav-link" onclick="this.closest('form').submit()" href="#">Logout</a>
-                            </form>
-                        </li>
+                    <li class="nav-item">
+                        <span class="nav-link">{{ Auth::user()->nombre }}</span>
+                    </li>
+                    <li class="nav-item">
+                        <form method="post" action="{{ route('logout') }}">
+                            @csrf
+                            <a class="nav-link" onclick="this.closest('form').submit()" href="#">Logout</a>
+                        </form>
+                    </li>
                     @endguest
                 </ul>
 
@@ -59,10 +60,9 @@
         @yield('contenido')
 
     </div>
-    
+
     <!-- JavaScript de Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
 </body>
 
 </html>
-

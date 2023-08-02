@@ -1,4 +1,3 @@
-<!-- login.blade -->
 @extends('layout')
 
 @section('contenido')
@@ -21,13 +20,14 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Iniciar sesión</button>
-
-        <!-- Para mostrar los mensajes de error de credenciales -->
-        @error('login')
-        <div class="alert alert-danger" role="alert">{{ $message }}</div>
-        @enderror
     </form>
-    <!-- Para mostrar el estado de la sesión del usuario -->
+    <br>
+    <!-- Mostrar mensaje de error de credenciales -->
+    @error('login')
+        <div class="alert alert-danger" role="alert">{{ $message }}</div>
+    @enderror
+
+    <!-- Mostrar mensaje de estado de sesión -->
     @if(session('status'))
         <div class="alert alert-warning" role="alert">{{ session('status') }}</div>
     @endif
