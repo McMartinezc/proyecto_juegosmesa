@@ -3,7 +3,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Juego;
-use Illuminate\Http\Request;
 
 class VistasController extends Controller
 {

@@ -1,4 +1,3 @@
-<!-- layout.blade -->
 <!DOCTYPE html>
 <html lang="es">
 
@@ -13,15 +12,17 @@
 
 <body>
     <!-- Barra de navegación -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <!-- Logo -->
-            <a class="navbar-brand" href="{{ route('home') }}">Tauler de jocs</a>
+            <a class="navbar-brand" href="{{ route('home') }}">
+                <img src="/img/logo.png" alt="Tauler de jocs">
+            </a>
 
             <!-- Menú de navegación -->
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="{{ route('home') }}">Inicio</a>
                     </li>
 
@@ -35,12 +36,13 @@
                     </li>
                     @else
                     <li class="nav-item">
-                        <span class="nav-link">{{ Auth::user()->nombre }}</span>
+                        <a class="nav-link navbar-light" href="{{ route('modificarusuario', ['idusuario' => Auth::user()->idusuario]) }}">{{ Auth::user()->nombre }}</a>
                     </li>
+
                     <li class="nav-item">
                         <form method="post" action="{{ route('logout') }}">
                             @csrf
-                            <a class="nav-link" onclick="this.closest('form').submit()" href="#">Logout</a>
+                            <a class="nav-link navbar-light" onclick="this.closest('form').submit()" href="#">Logout</a>
                         </form>
                     </li>
                     @endguest
@@ -58,7 +60,6 @@
     <!-- Contenido principal -->
     <div class="container mt-4">
         @yield('contenido')
-
     </div>
 
     <!-- JavaScript de Bootstrap -->

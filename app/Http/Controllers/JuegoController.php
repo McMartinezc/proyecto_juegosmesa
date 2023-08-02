@@ -91,32 +91,7 @@ public function consultajuegos(Request $request)
         }
     }
 
-    // Método para actualizar los datos de un juego en la base de datos
-    // public function actualizar(Request $request, $id)
-    // {
-    //     // Buscamos el juego a modificar
-    //     $juego = Juego::findOrFail($id);
-
-    //     // Validamos datos recibidos del formulario
-    //     $validator = Validator::make($request->all(), [
-    //         'nombre' => 'required',
-    //         'descripcion' => 'nullable',
-    //         'n_jugadores' => 'required',
-    //         'tematica' => 'required',
-    //         'tiempo_juego' => 'required',
-    //         'imagen' => 'nullable',
-    //     ]);
-
-    //     if ($validator->fails()) {
-    //         return redirect()->route('modificarjuego', ['juego' => $id])->withErrors($validator)->withInput();
-    //     }
-
-    //     // Actualizamos los datos del juego
-    //     $juego->update($request->all());
-
-    //     // Mensaje de éxito
-    //     return $this->mostrarMensajeRedireccionar('consultajuegos', 'success', 'Juego modificado correctamente.');
-    // }
+    //Método modificar juego
     public function actualizar(Request $request, $id)
 {
     // Buscamos el juego a modificar

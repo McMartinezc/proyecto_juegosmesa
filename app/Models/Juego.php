@@ -20,8 +20,7 @@ class Juego extends Model
     public function usuarios()
     {
         return $this->belongsToMany(Usuario::class, 'juego_usuario', 'idjuego', 'idusuario')
-                    ->withPivot('privado')
-                    ->withTimestamps();
+                    ->withPivot('privado');
     }
 
     public static function consulta($filtro){

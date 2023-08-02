@@ -46,3 +46,6 @@ Route::put('/juegos/{juego}/modificar', [JuegoController::class, 'actualizar'])-
 Route::delete('/juegos/{juego}/eliminar', [JuegoController::class, 'eliminar'])->name('eliminarjuego')->middleware('auth');
 Route::get('/juegos/{juego}', [JuegoController::class, 'detalleJuego'])->name('detallejuego');
 
+//Ruta modificación usuario
+Route::get('/usuario/modificar', [UsuarioController::class, 'VistaModificar'])->name('modificarusuario')->middleware('auth');
+Route::put('/usuario/actualizar/{idusuario}', [UsuarioController::class, 'actualizar'])->name('actualizarusuario')->middleware('auth');
